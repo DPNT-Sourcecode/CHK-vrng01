@@ -182,15 +182,15 @@ namespace BeFaster.App.Solutions.CHK
                     case 'P':
                         while (val > 0)
                         {
-                            if (val >= 2)
+                            if (val >= 5)
                             {
-                                var c = CalcIntValue(val, 2);
-                                total += c * 150;
-                                val -= c * 2;
+                                var c = CalcIntValue(val, 5);
+                                total += c * 200;
+                                val -= c * 5;
                             }
                             else
                             {
-                                total += val * 80;
+                                total += val * 50;
                                 val -= val;
                             }
                         }
@@ -207,6 +207,23 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
+        private static int CalcWithDiscount(int count, int howManyForDiscount, int discountedPrice, int normalPrice)
+        {
+            var total = 0;
+            if (count >= 5)
+            {
+                var c = CalcIntValue(count, howManyForDiscount);
+                total += c * discountedPrice;
+                count -= c * howManyForDiscount;
+            }
+            else
+            {
+                total += count * normalPrice;
+                count -= count;
+            }
+
+            return total;
+        }
         private static int CalculateNormalPrice(int count, int price)
         {
             return count * price;
@@ -236,12 +253,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
-
-
-
-
-
