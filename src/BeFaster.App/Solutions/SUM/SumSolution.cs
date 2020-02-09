@@ -1,4 +1,5 @@
-﻿using BeFaster.Runner.Exceptions;
+﻿using System;
+using BeFaster.Runner.Exceptions;
 
 namespace BeFaster.App.Solutions.SUM
 {
@@ -6,7 +7,8 @@ namespace BeFaster.App.Solutions.SUM
     {
         public static int Sum(int x, int y)
         {
-            throw new SolutionNotImplementedException();
+            return x + y;
         }
     }
 }
+
