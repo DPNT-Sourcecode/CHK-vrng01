@@ -18,7 +18,7 @@ namespace BeFaster.App.Solutions.CHK
             }
 
             var total = 0;
-            var charArr = skus.ToCharArray();
+            var charArr = skus.ToCharArray().OrderBy(c => c);
             foreach (var c in charArr)
             {
                 if (!knownSKUs.Contains(c))
@@ -116,5 +116,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
