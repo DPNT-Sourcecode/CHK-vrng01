@@ -145,11 +145,14 @@ namespace BeFaster.App.Solutions.CHK
                         break;
                     case 'N':
                         freeKey = 'M';
-                        if (val >= 3 && SKUs.ContainsKey(freeKey))
+                        var howMany = CalcIntValue(val, 3);
+                        if (SKUs.ContainsKey(freeKey))
                         {
-                            var bItemCount = SKUs[freeKey];
-                            total -= 15;
-                            bItemCount--;
+                            while (howMany > 0)
+                            {
+                                total -= 15;
+                                howMany--;
+                            }
                         }
                         total += CalculateNormalPrice(val, 40);
                         break;
@@ -201,6 +204,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
