@@ -42,6 +42,7 @@ namespace BeFaster.App.Solutions.CHK
                 switch (key)
                 {
                     case 'A':
+
                         break;
                     case 'B':
                         break;
@@ -90,5 +91,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
