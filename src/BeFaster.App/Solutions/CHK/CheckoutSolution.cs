@@ -229,7 +229,7 @@ namespace BeFaster.App.Solutions.CHK
                 if (itemCount % howManyToGetOneFree == 0)
                 {
                     total += (howManyToGetOneFree - 1) * price;
-                    itemCount -= howManyToGetOneFree-1;
+                    itemCount -= howManyToGetOneFree;
                 }
                 else
                 {
@@ -246,4 +246,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
