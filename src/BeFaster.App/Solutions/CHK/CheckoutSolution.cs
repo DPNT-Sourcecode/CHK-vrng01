@@ -84,6 +84,7 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 15);
                         break;
                     case 'E':
+                        // This could be converted to a function
                         if (val >= 2 && SKUs.ContainsKey('B'))
                         {
                             var bItemCount = SKUs['B'];
@@ -107,6 +108,28 @@ namespace BeFaster.App.Solutions.CHK
                         break;
                     case 'F':
                         total += GetOneFree(val, 10, 3);
+                        break;
+                    case 'H':
+                        while (val > 0)
+                        {
+                            if (val >= 10)
+                            {
+                                var c = CalcIntValue(val, 10);
+                                total += c * 80;
+                                val -= c * 10;
+                            }
+                            else if (val >= 5)
+                            {
+                                var c = CalcIntValue(val, 5);
+                                total += c * 45;
+                                val -= c * 5;
+                            }
+                            else
+                            {
+                                total += val * 10;
+                                val -= val;
+                            }
+                        }
                         break;
                     case 'I':
                         total += CalculateNormalPrice(val, 35);
@@ -166,6 +189,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
