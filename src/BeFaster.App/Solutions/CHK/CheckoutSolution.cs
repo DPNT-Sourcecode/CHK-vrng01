@@ -10,7 +10,7 @@ namespace BeFaster.App.Solutions.CHK
         public static int ComputePrice(string skus)
         {
             var SKUs = new Dictionary<char, int>();
-            var knownSKUs = new[] { 'A', 'B', 'C', 'D', 'E' };
+            var knownSKUs = new[] { 'A', 'B', 'C', 'D', 'E', 'F' };
 
             if (string.IsNullOrEmpty(skus))
             {
@@ -103,6 +103,8 @@ namespace BeFaster.App.Solutions.CHK
 
                         total += val * 40;
                         break;
+                    case 'F':
+                        break;
                 }
             }
 
@@ -115,6 +117,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
