@@ -71,11 +71,12 @@ namespace BeFaster.App.Solutions.CHK
                             total += c * 45;
                             val -= c * 2;
                         }
-
                         total += CalculateNormalPrice(val, 30);
                         break;
                     case 'C':
                     case 'G':
+                    case 'W':
+                    case 'T':
                         total += CalculateNormalPrice(val, 20);
                         break;
                     case 'D':
@@ -102,7 +103,6 @@ namespace BeFaster.App.Solutions.CHK
                                 val -= 2;
                             }
                         }
-
                         total += CalculateNormalPrice(val, 40);
                         break;
                     case 'F':
@@ -115,6 +115,7 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 60);
                         break;
                     case 'L':
+                    case 'X':
                         total += CalculateNormalPrice(val, 90);
                         break;
                     case 'O':
@@ -123,15 +124,6 @@ namespace BeFaster.App.Solutions.CHK
                         break;
                     case 'S':
                         total += CalculateNormalPrice(val, 30);
-                        break;
-                    case 'T':
-                        total += CalculateNormalPrice(val, 20);
-                        break;
-                    case 'W':
-                        total += CalculateNormalPrice(val, 20);
-                        break;
-                    case 'X':
-                        total += CalculateNormalPrice(val, 90);
                         break;
                     case 'Z':
                         total += CalculateNormalPrice(val, 50);
@@ -172,6 +164,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
