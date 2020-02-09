@@ -56,7 +56,7 @@ namespace BeFaster.App.Solutions.CHK
                         }
                         break;
                     case 'B':
-                        total += GetTotalOfDiscounted(val, 2, 45);
+                        total += GetTotalOfDiscounted(val, 2, 45, 30);
                         break;
                     case 'C':
                     case 'G':
@@ -156,7 +156,31 @@ namespace BeFaster.App.Solutions.CHK
                         }
                         break;
                     case 'Q':
-                        total += GetTotalOfDiscounted(val, 3, 80);
+                        total += GetTotalOfDiscounted(val, 3, 80,30);
+                        break;
+                    case 'R':
+                        freeKey = 'B';
+                        if (val >= 2 && SKUs.ContainsKey(freeKey))
+                        {
+                            var bItemCount = SKUs[freeKey];
+                            while (val >= 2 && bItemCount > 0)
+                            {
+                                if (bItemCount % 2 == 0)
+                                {
+                                    total -= 45;
+                                    total += 30;
+                                    bItemCount -= 1;
+                                }
+                                else
+                                {
+                                    total -= 30;
+                                    bItemCount -= 1;
+                                }
+                                total += 80;
+                                val -= 2;
+                            }
+                        }
+                        total += CalculateNormalPrice(val, 40);
                         break;
                     case 'S':
                         total += CalculateNormalPrice(val, 30);
@@ -170,14 +194,14 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
-        private static int GetTotalOfDiscounted(int val, int howManyForDiscount, int discountedPrice)
+        private static int GetTotalOfDiscounted(int val, int howManyForDiscount, int discountedPrice, int price)
         {
             var total = 0;
             while (val > 0)
             {
-                total += CalcDiscount(ref val, 3, 80);
+                total += CalcDiscount(ref val, howManyForDiscount, discountedPrice);
                 if (val <= 0) continue;
-                total += val * 30;
+                total += val * price;
                 val -= val;
             }
             return total;
@@ -221,4 +245,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
