@@ -32,7 +32,7 @@ namespace BeFaster.App.Solutions.CHK
                 }
                 else
                 {
-                    SKUs[c] += 1;
+                    SKUs[c]++;
                 }
             }
 
@@ -79,12 +79,12 @@ namespace BeFaster.App.Solutions.CHK
                                 {
                                     total -= 45;
                                     total += 30;
-                                    bItemCount -= 1;
+                                    bItemCount--;
                                 }
                                 else
                                 {
                                     total -= 30;
-                                    bItemCount -= 1;
+                                    bItemCount--;
                                 }
                                 total += 80;
                                 val -= 2;
@@ -246,6 +246,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
