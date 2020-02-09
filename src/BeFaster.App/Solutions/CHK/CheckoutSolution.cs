@@ -50,18 +50,18 @@ namespace BeFaster.App.Solutions.CHK
                                 var c = CalcIntValue(val, 5);
                                 total += c * 200;
                                 val -= c * 5;
-                                continue;
                             }
-
-                            if (val >= 3)
+                            else if (val >= 3)
                             {
                                 var c = CalcIntValue(val, 3);
                                 total += c * 130;
                                 val -= c * 3;
-                                continue;
                             }
-                            total += val * 50;
-                            val -= val;
+                            else
+                            {
+                                total += val * 50;
+                                val -= val;
+                            }
                         }
                         break;
                     case 'B':
@@ -116,4 +116,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
