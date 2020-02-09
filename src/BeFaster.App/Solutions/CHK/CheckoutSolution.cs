@@ -39,7 +39,25 @@ namespace BeFaster.App.Solutions.CHK
             {
                 var key = sku.Key;
                 var val = sku.Value;
-                if(sku.ke)
+                switch (key)
+                {
+                    case 'A':
+                        break;
+                    case 'B':
+                        break;
+                    case 'C':
+                    case 'D':
+                        break;
+                    case 'E':
+                        break;
+                }
+                if (key.Equals('A'))
+                {
+                    //switch (val)
+                    //{
+                    //    case 
+                    //}
+                }
                 //switch (count)
                 //{
                 //    case 3 when c.Equals('A'):
@@ -72,4 +90,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
