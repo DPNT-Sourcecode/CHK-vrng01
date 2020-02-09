@@ -30,13 +30,18 @@ namespace BeFaster.App.Solutions.CHK
 
                 if (SKUs[c].Equals(3) && c.Equals('A'))
                 {
-
+                    total += 130;
+                    SKUs[c] = 0;
                 }
                 else if (SKUs[c].Equals(2) && c.Equals('B'))
                 {
-
+                    total += 45;
+                    SKUs[c] = 0;
                 }
             }
+
+            return total;
         }
     }
 }
+
