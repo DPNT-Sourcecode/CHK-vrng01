@@ -81,7 +81,27 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 15;
                         break;
                     case 'E':
-                        total += GetOneFreeFromX(SKUs, val, 40, 'B');
+                        if (val >= 2 && SKUs.ContainsKey('B'))
+                        {
+                            var bItemCount = SKUs['B'];
+                            while (val >= 2 && bItemCount > 0)
+                            {
+                                if (bItemCount % 2 == 0)
+                                {
+                                    total -= 15;
+                                    bItemCount -= 1;
+                                }
+                                else
+                                {
+                                    total -= 30;
+                                    bItemCount -= 1;
+                                }
+                                total += 80;
+                                val -= 2;
+                            }
+                        }
+
+                        total += val * 40;
                         break;
                     case 'F':
                         total += GetOneFree(val, 10);
@@ -89,33 +109,6 @@ namespace BeFaster.App.Solutions.CHK
                 }
             }
 
-            return total;
-        }
-
-        private static int GetOneFreeFromX(IReadOnlyDictionary<char, int> SKUs, int count, int price, char SKUFree, int freePrice)
-        {
-            var total = 0;
-            if (count >= 2 && SKUs.ContainsKey(SKUFree))
-            {
-                var bItemCount = SKUs[SKUFree];
-                while (count >= 2 && bItemCount > 0)
-                {
-                    if (bItemCount % 2 == 0)
-                    {
-                        total -= 15;
-                        bItemCount -= 1;
-                    }
-                    else
-                    {
-                        total -= 30;
-                        bItemCount -= 1;
-                    }
-                    total += 2 * price;
-                    count -= 2;
-                }
-            }
-
-            total += count * 40;
             return total;
         }
 
@@ -145,5 +138,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
