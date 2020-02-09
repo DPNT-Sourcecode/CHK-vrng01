@@ -10,6 +10,7 @@ namespace BeFaster.App.Solutions.CHK
         private static readonly char[] knownSKUs = new[] { 'A', 'B', 'C', 'D' };
         public static int ComputePrice(string skus)
         {
+            var total = 0;
             var charArr = skus.ToCharArray();
             foreach (var c in charArr)
             {
@@ -24,11 +25,18 @@ namespace BeFaster.App.Solutions.CHK
                 }
                 else
                 {
+                    SKUs[c] += 1;
+                }
+
+                if (SKUs[c].Equals(3) && c.Equals('A'))
+                {
+
+                }
+                else if (SKUs[c].Equals(2) && c.Equals('B'))
+                {
 
                 }
             }
         }
     }
 }
-
-
