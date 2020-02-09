@@ -141,7 +141,33 @@ namespace BeFaster.App.Solutions.CHK
         {
             return count * price;
         }
-        private static int GetOneFree(Dictionary<char, int> SKUs, int itemCount, int price, int howManyToGetOneFree, int freeProductCost)
+
+        private static int GetOneFreeOfType(Dictionary<char, int> SKUs, int count, int price)
+        {
+            var total = 0;
+            if (count >= 2 && SKUs.ContainsKey('B'))
+            {
+                var bItemCount = SKUs['B'];
+                while (count >= 2 && bItemCount > 0)
+                {
+                    if (bItemCount % 2 == 0)
+                    {
+                        total -= 15;
+                        bItemCount -= 1;
+                    }
+                    else
+                    {
+                        total -= 30;
+                        bItemCount -= 1;
+                    }
+                    total += 80;
+                    count -= 2;
+                }
+            }
+            total += CalculateNormalPrice(count, 40);
+            return total;
+        }
+        private static int GetOneFree(int itemCount, int price, int howManyToGetOneFree)
         {
             var total = 0;
             while (itemCount > 0)
@@ -166,4 +192,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
