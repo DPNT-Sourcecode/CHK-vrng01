@@ -141,7 +141,7 @@ namespace BeFaster.App.Solutions.CHK
         {
             return count * price;
         }
-        private static int GetOneFree(int itemCount, int price, int howManyToGetOneFree)
+        private static int GetOneFree(Dictionary<char, int> SKUs, int itemCount, int price, int howManyToGetOneFree, int freeProductCost)
         {
             var total = 0;
             while (itemCount > 0)
@@ -166,3 +166,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
