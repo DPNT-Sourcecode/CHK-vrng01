@@ -106,7 +106,7 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 40);
                         break;
                     case 'F':
-                        total += GetOneFree(val, 10);
+                        total += GetOneFree(val, 10, 3);
                         break;
                     case 'I':
                         total += CalculateNormalPrice(val, 35);
@@ -138,32 +138,32 @@ namespace BeFaster.App.Solutions.CHK
         {
             return count * price;
         }
-        private static int GetOneFree(int count, int price)
+        private static int GetOneFree(int itemCount, int price, int howManyToGetOneFree)
         {
             var total = 0;
-            while (count > 0)
+            while (itemCount > 0)
             {
-                if (count % 3 == 0)
+                if (itemCount % howManyToGetOneFree == 0)
                 {
-                    total += 2 * price;
-                    count -= 3;
+                    total += (howManyToGetOneFree-1) * price;
+                    itemCount -= howManyToGetOneFree;
                 }
                 else
                 {
                     total += price;
-                    count -= 1;
+                    itemCount -= 1;
                 }
             }
 
             return total;
         }
-
         private static int CalcIntValue(int x, int y)
         {
             return Convert.ToInt32(decimal.Truncate(x / y));
         }
     }
 }
+
 
 
 
