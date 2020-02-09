@@ -159,25 +159,25 @@ namespace BeFaster.App.Solutions.CHK
                         total += GetTotalOfDiscounted(val, 3, 80,30);
                         break;
                     case 'R':
-                        freeKey = 'B';
-                        if (val >= 2 && SKUs.ContainsKey(freeKey))
+                        freeKey = 'Q';
+                        if (val >= 3 && SKUs.ContainsKey(freeKey))
                         {
                             var bItemCount = SKUs[freeKey];
-                            while (val >= 2 && bItemCount > 0)
+                            while (val >= 3 && bItemCount > 0)
                             {
-                                if (bItemCount % 2 == 0)
+                                if (bItemCount % 3 == 0)
                                 {
-                                    total -= 45;
-                                    total += 30;
+                                    total -= 80;
+                                    total += 50;
                                     bItemCount -= 1;
                                 }
                                 else
                                 {
-                                    total -= 30;
+                                    total -= 50;
                                     bItemCount -= 1;
                                 }
-                                total += 80;
-                                val -= 2;
+                                total += 90;
+                                val -= 3;
                             }
                         }
                         total += CalculateNormalPrice(val, 40);
@@ -245,5 +245,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
