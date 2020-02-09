@@ -43,6 +43,18 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
+        [TestCase("EEB", ExpectedResult = 80)]
+        public int ComputePrice_Discounted_2E_1B(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("EEBB", ExpectedResult = 110)]
+        public int ComputePrice_Discounted_2E_2B(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
         [TestCase("ABCD", ExpectedResult = 115)]
         public int ComputePrice_NoDiscount(string skus)
         {
@@ -62,6 +74,3 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
-
-
-
