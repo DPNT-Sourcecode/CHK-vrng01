@@ -139,6 +139,16 @@ namespace BeFaster.App.Solutions.CHK
                     case 'J':
                         total += CalculateNormalPrice(val, 60);
                         break;
+                    case 'K':
+                        if (val == 2)
+                        {
+                            total += 150;
+                        }
+                        else
+                        {
+                            total += CalculateNormalPrice(val, 80);
+                        }
+                        break;
                     case 'L':
                     case 'X':
                         total += CalculateNormalPrice(val, 90);
@@ -204,6 +214,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
