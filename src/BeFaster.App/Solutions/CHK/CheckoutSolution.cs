@@ -56,13 +56,7 @@ namespace BeFaster.App.Solutions.CHK
                         }
                         break;
                     case 'B':
-                        while (val > 0)
-                        {
-                            total += CalcDiscount(ref val, 2, 45);
-                            if (val <= 0) continue;
-                            total += val * 30;
-                            val -= val;
-                        }
+                        total += GetTotalOfDiscounted(val, 2, 45);
                         break;
                     case 'C':
                     case 'G':
@@ -162,13 +156,7 @@ namespace BeFaster.App.Solutions.CHK
                         }
                         break;
                     case 'Q':
-                        while (val > 0)
-                        {
-                            total += CalcDiscount(ref val, 3, 80);
-                            if (val <= 0) continue;
-                            total += val * 30;
-                            val -= val;
-                        }
+                        total += GetTotalOfDiscounted(val, 3, 80);
                         break;
                     case 'S':
                         total += CalculateNormalPrice(val, 30);
@@ -182,6 +170,18 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
+        private static int GetTotalOfDiscounted(int val, int howManyForDiscount, int discountedPrice)
+        {
+            var total = 0;
+            while (val > 0)
+            {
+                total += CalcDiscount(ref val, 3, 80);
+                if (val <= 0) continue;
+                total += val * 30;
+                val -= val;
+            }
+            return total;
+        }
         private static int CalcDiscount(ref int count, int howManyForDiscount, int discountedPrice)
         {
             var total = 0;
@@ -221,3 +221,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
