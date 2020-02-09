@@ -25,7 +25,7 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
 
-                if (SKUs.ContainsKey(c))
+                if (!SKUs.ContainsKey(c))
                 {
                     SKUs.Add(c, 1);
                 }
@@ -71,6 +71,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
