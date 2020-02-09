@@ -1,8 +1,6 @@
-using AutoMoq;
 using BeFaster.App.Solutions.CHK;
-using Moq;
+
 using NUnit.Framework;
-using System;
 
 namespace BeFaster.App.Tests.Solutions.CHK
 {
@@ -40,5 +38,6 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
+
 
 
