@@ -223,6 +223,18 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
+        private static int CalcDiscount(ref int count, int price)
+        {
+            var total = 0;
+            if (val >= 3)
+            {
+                var c = CalcIntValue(val, 3);
+                total += c * 80;
+                val -= c * 3;
+            }
+
+            return total;
+        }
         private static int CalculateNormalPrice(int count, int price)
         {
             return count * price;
@@ -252,6 +264,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
