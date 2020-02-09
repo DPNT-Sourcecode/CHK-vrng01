@@ -91,7 +91,19 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
-        [TestCase("ABCDEF", ExpectedResult = -1)]
+        [TestCase("F", ExpectedResult = 10)]
+        public int ComputePrice_Fail_1F(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("FFF", ExpectedResult = 10)]
+        public int ComputePrice_Fail_3F(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("ABCDEFG", ExpectedResult = -1)]
         public int ComputePrice_Fail_Invalid_SKU(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
@@ -116,5 +128,3 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
-
-
