@@ -58,12 +58,13 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
-        private int GetIntValue(int x, int y)
+        private static int CalcIntValue(int x, int y)
         {
-            return Math.Truncate((decimal)(x / y));
+            return Convert.ToInt32(decimal.Truncate(x / y));
         }
     }
 }
+
 
 
 
