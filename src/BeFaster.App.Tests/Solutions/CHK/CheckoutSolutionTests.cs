@@ -33,11 +33,12 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
-        [TestCase(null, ExpectedResult = -1)]
+        [TestCase(null, ExpectedResult = 0)]
         public int ComputePrice_Fail_InvalidInput(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
         }
     }
 }
+
 

@@ -13,7 +13,7 @@ namespace BeFaster.App.Solutions.CHK
 
             if (string.IsNullOrEmpty(skus))
             {
-                return -1;
+                return 0;
             }
 
             var total = 0;
@@ -71,6 +71,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
