@@ -46,24 +46,34 @@ namespace BeFaster.App.Solutions.CHK
                     case 'A':
                         while (val > 0)
                         {
-                            if (val >= 5)
-                            {
-                                var c = CalcIntValue(val, 5);
-                                total += c * 200;
-                                val -= c * 5;
-                            }
-                            else if (val >= 3)
-                            {
-                                var c = CalcIntValue(val, 3);
-                                total += c * 130;
-                                val -= c * 3;
-                            }
-                            else
-                            {
-                                total += val * 50;
-                                val -= val;
-                            }
+                            total += CalcDiscount(ref val, 5, 200);
+                            if (val <= 0) continue;
+                            total += CalcDiscount(ref val, 3, 130);
+                            if (val <= 0) continue;
+
+                            total += val * 50;
+                            val -= val;
                         }
+                        //while (val > 0)
+                        //{
+                        //    if (val >= 5)
+                        //    {
+                        //        var c = CalcIntValue(val, 5);
+                        //        total += c * 200;
+                        //        val -= c * 5;
+                        //    }
+                        //    else if (val >= 3)
+                        //    {
+                        //        var c = CalcIntValue(val, 3);
+                        //        total += c * 130;
+                        //        val -= c * 3;
+                        //    }
+                        //    else
+                        //    {
+                        //        total += val * 50;
+                        //        val -= val;
+                        //    }
+                        //}
                         break;
                     case 'B':
                         while (val > 0)
@@ -241,6 +251,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
