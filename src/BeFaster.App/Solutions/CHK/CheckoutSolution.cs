@@ -104,6 +104,19 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 40;
                         break;
                     case 'F':
+                        while (val > 0)
+                        {
+                            if (val % 3 == 0)
+                            {
+                                total += 2 * 10;
+                                val -= 3;
+                            }
+                            else
+                            {
+                                total += 10;
+                                val -= 1;
+                            }
+                        }
                         break;
                 }
             }
@@ -117,6 +130,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
