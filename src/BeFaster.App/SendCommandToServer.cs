@@ -58,7 +58,7 @@ namespace BeFaster.App
         ///   You are encouraged to change this project as you please:
         ///        * You can use your preferred libraries.
         ///        * You can use your own test framework.
-        ///        * You can change the file structure.
+        ///        * You can change the file strutcture.
         ///        * Anything really, provided that this file stays runnable.
         ///
         /// </summary>
@@ -86,3 +86,4 @@ namespace BeFaster.App
         }
     }
 }
+
