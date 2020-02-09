@@ -81,30 +81,10 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 15;
                         break;
                     case 'E':
-                        if (val >= 2 && SKUs.ContainsKey('B'))
-                        {
-                            var bItemCount = SKUs['B'];
-                            while (val >= 2 && bItemCount > 0)
-                            {
-                                if (bItemCount % 2 == 0)
-                                {
-                                    total -= 15;
-                                    bItemCount -= 1;
-                                }
-                                else
-                                {
-                                    total -= 30;
-                                    bItemCount -= 1;
-                                }
-                                total += 80;
-                                val -= 2;
-                            }
-                        }
 
-                        total += val * 40;
                         break;
                     case 'F':
-
+                        total += GetOneFree(val, 10);
                         break;
                 }
             }
@@ -112,22 +92,51 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
+        private static int GetOneFreeFromX(IReadOnlyDictionary<char, int> SKUs, int count, int price, char SKUFree)
+        {
+            var total = 0;
+            if (count >= 2 && SKUs.ContainsKey(SKUFree))
+            {
+                var bItemCount = SKUs[SKUFree];
+                while (count >= 2 && bItemCount > 0)
+                {
+                    if (bItemCount % 2 == 0)
+                    {
+                        total -= 15;
+                        bItemCount -= 1;
+                    }
+                    else
+                    {
+                        total -= 30;
+                        bItemCount -= 1;
+                    }
+                    total += 80;
+                    count -= 2;
+                }
+            }
+
+            total += count * 40;
+            return total;
+        }
+
         private static int GetOneFree(int count, int price)
         {
             var total = 0;
-            while (val > 0)
+            while (count > 0)
             {
-                if (val % 3 == 0)
+                if (count % 3 == 0)
                 {
                     total += 2 * 10;
-                    val -= 3;
+                    count -= 3;
                 }
                 else
                 {
                     total += 10;
-                    val -= 1;
+                    count -= 1;
                 }
             }
+
+            return total;
         }
 
         private static int CalcIntValue(int x, int y)
@@ -136,3 +145,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
