@@ -7,7 +7,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
     [TestFixture]
     public class CheckoutSolutionTests
     {
-        [TestCase("AAAAAAAAA", ExpectedResult = 380)]
+        [TestCase("AAAAA", ExpectedResult = 200)]
         public int ComputePrice_Discounted_5A(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
@@ -19,8 +19,14 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
-        [TestCase("AAABB", ExpectedResult = 175)]
-        public int ComputePrice_Discounted_A_B(string skus)
+        [TestCase("AAAAAAAAA", ExpectedResult = 380)]
+        public int ComputePrice_Discounted_5A_3A_1A(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("BBB", ExpectedResult = 75)]
+        public int ComputePrice_Discounted_3B(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
         }
@@ -44,4 +50,5 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
+
 
