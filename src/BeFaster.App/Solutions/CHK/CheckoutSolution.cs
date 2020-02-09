@@ -6,10 +6,11 @@ namespace BeFaster.App.Solutions.CHK
 {
     public static class CheckoutSolution
     {
-        private static Dictionary<char, int> SKUs = new Dictionary<char, int>();
-        private static readonly char[] knownSKUs = new[] { 'A', 'B', 'C', 'D' };
         public static int ComputePrice(string skus)
         {
+            var SKUs = new Dictionary<char, int>();
+            var knownSKUs = new[] { 'A', 'B', 'C', 'D' };
+
             if (string.IsNullOrEmpty(skus))
             {
                 return -1;
@@ -70,5 +71,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 

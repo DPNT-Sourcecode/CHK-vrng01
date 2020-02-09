@@ -9,10 +9,10 @@ namespace BeFaster.App.Tests.Solutions.CHK
     [TestFixture]
     public class CheckoutSolutionTests
     {
-        [TestCase(1, 1, ExpectedResult = 2)]
-        public int ComputePrice(int x, int y)
+        [TestCase("AAABC", ExpectedResult = 180)]
+        public int ComputePrice(string skus)
         {
-            return CheckoutSolution.ComputePrice(x, y);
+            return CheckoutSolution.ComputePrice(skus);
         }
     }
-}
+}
