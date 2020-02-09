@@ -81,6 +81,11 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 15;
                         break;
                     case 'E':
+                        var bItemCount = SKUs['B'];
+                        while (val >= 2 && bItemCount > 0)
+                        {
+
+                        }
                         break;
                 }
             }
@@ -94,3 +99,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
