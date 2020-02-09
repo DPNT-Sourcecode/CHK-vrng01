@@ -141,33 +141,6 @@ namespace BeFaster.App.Solutions.CHK
         {
             return count * price;
         }
-
-        private static int GetOneFreeOfType(Dictionary<char, int> SKUs, int count, int price, char freeKey, int howManyToGetOneFree, int freePrice)
-        {
-            var total = 0;
-            if (count >= howManyToGetOneFree && SKUs.ContainsKey(freeKey))
-            {
-                var bItemCount = SKUs[freeKey];
-                while (count >= howManyToGetOneFree && bItemCount > 0)
-                {
-                    if (bItemCount % howManyToGetOneFree == 0)
-                    {
-                        total -= freePrice;
-                        total += howManyToGetOneFree * price;
-                        bItemCount -= 1;
-                    }
-                    else
-                    {
-                        total -= 30;
-                        bItemCount -= 1;
-                    }
-                    total += howManyToGetOneFree * price;
-                    count -= howManyToGetOneFree;
-                }
-            }
-            total += CalculateNormalPrice(count, price);
-            return total;
-        }
         private static int GetOneFree(int itemCount, int price, int howManyToGetOneFree)
         {
             var total = 0;
@@ -193,6 +166,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
