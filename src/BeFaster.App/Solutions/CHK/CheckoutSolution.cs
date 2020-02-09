@@ -182,33 +182,19 @@ namespace BeFaster.App.Solutions.CHK
                     case 'P':
                         while (val > 0)
                         {
-                            if (val >= 5)
-                            {
-                                var c = CalcIntValue(val, 5);
-                                total += c * 200;
-                                val -= c * 5;
-                            }
-                            else
-                            {
-                                total += val * 50;
-                                val -= val;
-                            }
+                            total += CalcDiscount(ref val, 5, 200);
+                            if (val <= 0) continue;
+                            total += val * 50;
+                            val -= val;
                         }
                         break;
                     case 'Q':
                         while (val > 0)
                         {
-                            if (val >= 3)
-                            {
-                                var c = CalcIntValue(val, 3);
-                                total += c * 80;
-                                val -= c * 3;
-                            }
-                            else
-                            {
-                                total += val * 30;
-                                val -= val;
-                            }
+                            total += CalcDiscount(ref val, 3, 80);
+                            if (val <= 0) continue;
+                            total += val * 30;
+                            val -= val;
                         }
                         break;
                     case 'S':
@@ -223,15 +209,13 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
-        private static int CalcDiscount(ref int count, int price)
+        private static int CalcDiscount(ref int count, int howManyForDiscount, int discountedPrice)
         {
             var total = 0;
-            if (val >= 3)
-            {
-                var c = CalcIntValue(val, 3);
-                total += c * 80;
-                val -= c * 3;
-            }
+            if (count < howManyForDiscount) return total;
+            var c = CalcIntValue(count, howManyForDiscount);
+            total += c * discountedPrice;
+            count -= c * howManyForDiscount;
 
             return total;
         }
@@ -264,6 +248,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
