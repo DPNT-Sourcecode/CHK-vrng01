@@ -45,12 +45,19 @@ namespace BeFaster.App.Solutions.CHK
                     case 'A':
                         while (val > 0)
                         {
-                            var c = CalcIntValue(val, 5);
-                            if (c > 0)
+                            if (val >= 5)
                             {
+                                var c = CalcIntValue(val, 5);
                                 total += c * 200;
                                 val -= c;
                             }
+                            if (val >= 3)
+                            {
+                                var c = CalcIntValue(val, 5);
+                                total += c * 130;
+                                val -= c;
+                            }
+                            
                         }
 
                         break;
@@ -73,3 +80,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
