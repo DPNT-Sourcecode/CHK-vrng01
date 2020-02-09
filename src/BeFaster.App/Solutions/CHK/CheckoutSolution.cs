@@ -150,18 +150,8 @@ namespace BeFaster.App.Solutions.CHK
                             var bItemCount = SKUs[freeKey];
                             while (val >= 3 && bItemCount > 0)
                             {
-                                if (bItemCount % 3 == 0)
-                                {
-                                    total -= 15;
-                                    bItemCount -= 1;
-                                }
-                                else
-                                {
-                                    total -= 15;
-                                    bItemCount -= 1;
-                                }
-                                total += 40;
-                                val -= 3;
+                                total -= 15;
+                                bItemCount -= 1;
                             }
                         }
                         total += CalculateNormalPrice(val, 40);
@@ -214,5 +204,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
