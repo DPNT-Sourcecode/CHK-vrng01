@@ -97,7 +97,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
-        [TestCase("FFF", ExpectedResult = 10)]
+        [TestCase("FFF", ExpectedResult = 20)]
         public int ComputePrice_Fail_3F(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
@@ -123,5 +123,6 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
     }
 }
+
 
 
