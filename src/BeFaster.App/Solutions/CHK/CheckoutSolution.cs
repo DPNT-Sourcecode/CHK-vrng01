@@ -54,26 +54,6 @@ namespace BeFaster.App.Solutions.CHK
                             total += val * 50;
                             val -= val;
                         }
-                        //while (val > 0)
-                        //{
-                        //    if (val >= 5)
-                        //    {
-                        //        var c = CalcIntValue(val, 5);
-                        //        total += c * 200;
-                        //        val -= c * 5;
-                        //    }
-                        //    else if (val >= 3)
-                        //    {
-                        //        var c = CalcIntValue(val, 3);
-                        //        total += c * 130;
-                        //        val -= c * 3;
-                        //    }
-                        //    else
-                        //    {
-                        //        total += val * 50;
-                        //        val -= val;
-                        //    }
-                        //}
                         break;
                     case 'B':
                         while (val > 0)
@@ -124,23 +104,13 @@ namespace BeFaster.App.Solutions.CHK
                     case 'H':
                         while (val > 0)
                         {
-                            if (val >= 10)
-                            {
-                                var c = CalcIntValue(val, 10);
-                                total += c * 80;
-                                val -= c * 10;
-                            }
-                            else if (val >= 5)
-                            {
-                                var c = CalcIntValue(val, 5);
-                                total += c * 45;
-                                val -= c * 5;
-                            }
-                            else
-                            {
-                                total += val * 10;
-                                val -= val;
-                            }
+                            total += CalcDiscount(ref val, 10, 80);
+                            if (val <= 0) continue;
+                            total += CalcDiscount(ref val, 5, 45);
+                            if (val <= 0) continue;
+
+                            total += val * 10;
+                            val -= val;
                         }
                         break;
                     case 'I':
@@ -251,11 +221,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
-
-
-
-
