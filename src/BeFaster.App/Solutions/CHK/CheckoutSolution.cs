@@ -40,6 +40,7 @@ namespace BeFaster.App.Solutions.CHK
             {
                 var key = sku.Key;
                 var val = sku.Value;
+                char freeKey;
                 switch (key)
                 {
                     case 'A':
@@ -84,14 +85,16 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 15);
                         break;
                     case 'E':
-                        if (val >= 2 && SKUs.ContainsKey('B'))
+                        freeKey = 'B';
+                        if (val >= 2 && SKUs.ContainsKey(freeKey))
                         {
-                            var bItemCount = SKUs['B'];
+                            var bItemCount = SKUs[freeKey];
                             while (val >= 2 && bItemCount > 0)
                             {
                                 if (bItemCount % 2 == 0)
                                 {
-                                    total -= 15;
+                                    total -= 45;
+                                    total += 30;
                                     bItemCount -= 1;
                                 }
                                 else
@@ -139,6 +142,29 @@ namespace BeFaster.App.Solutions.CHK
                     case 'L':
                     case 'X':
                         total += CalculateNormalPrice(val, 90);
+                        break;
+                    case 'N':
+                        freeKey = 'M';
+                        if (val >= 3 && SKUs.ContainsKey(freeKey))
+                        {
+                            var bItemCount = SKUs[freeKey];
+                            while (val >= 3 && bItemCount > 0)
+                            {
+                                if (bItemCount % 3 == 0)
+                                {
+                                    total -= 15;
+                                    bItemCount -= 1;
+                                }
+                                else
+                                {
+                                    total -= 30;
+                                    bItemCount -= 1;
+                                }
+                                total += 80;
+                                val -= 3;
+                            }
+                        }
+                        total += CalculateNormalPrice(val, 40);
                         break;
                     case 'U':
                         total += GetOneFree(val, 40, 3);
@@ -188,9 +214,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
-
-
