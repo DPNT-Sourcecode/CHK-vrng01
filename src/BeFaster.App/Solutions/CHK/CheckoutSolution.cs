@@ -118,6 +118,9 @@ namespace BeFaster.App.Solutions.CHK
                     case 'X':
                         total += CalculateNormalPrice(val, 90);
                         break;
+                    case 'U':
+                        total += GetOneFree(val, 40, 3);
+                        break;
                     case 'O':
                     case 'Y':
                         total += CalculateNormalPrice(val, 10);
@@ -163,11 +166,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
-
-
-
-
