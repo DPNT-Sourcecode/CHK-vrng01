@@ -195,6 +195,22 @@ namespace BeFaster.App.Solutions.CHK
                             }
                         }
                         break;
+                    case 'Q':
+                        while (val > 0)
+                        {
+                            if (val >= 3)
+                            {
+                                var c = CalcIntValue(val, 3);
+                                total += c * 80;
+                                val -= c * 3;
+                            }
+                            else
+                            {
+                                total += val * 30;
+                                val -= val;
+                            }
+                        }
+                        break;
                     case 'S':
                         total += CalculateNormalPrice(val, 30);
                         break;
@@ -236,6 +252,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
