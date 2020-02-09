@@ -145,12 +145,12 @@ namespace BeFaster.App.Solutions.CHK
             {
                 if (count % 3 == 0)
                 {
-                    total += 2 * 10;
+                    total += 2 * price;
                     count -= 3;
                 }
                 else
                 {
-                    total += 10;
+                    total += price;
                     count -= 1;
                 }
             }
@@ -164,6 +164,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
