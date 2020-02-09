@@ -104,10 +104,17 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
 
         [TestCase("AAAAAEEBAAABB", ExpectedResult = 455)]
-        public int ComputePrice_Fail_Special(string skus)
+        public int ComputePrice_Fail_Special1(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("ABCDECBAABCABBAAAEEAA", ExpectedResult = 665)]
+        public int ComputePrice_Fail_Special2(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
         }
     }
 }
+
 
