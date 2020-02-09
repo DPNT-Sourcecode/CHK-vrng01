@@ -75,7 +75,10 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 30;
                         break;
                     case 'C':
+                        total += val * 20;
+                        break;
                     case 'D':
+                        total += val * 15;
                         break;
                     case 'E':
                         break;
@@ -91,6 +94,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
