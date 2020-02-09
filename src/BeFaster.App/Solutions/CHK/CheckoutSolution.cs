@@ -75,9 +75,11 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 30);
                         break;
                     case 'C':
+                    case 'G':
                         total += CalculateNormalPrice(val, 20);
                         break;
                     case 'D':
+                    case 'M':
                         total += CalculateNormalPrice(val, 15);
                         break;
                     case 'E':
@@ -105,6 +107,34 @@ namespace BeFaster.App.Solutions.CHK
                         break;
                     case 'F':
                         total += GetOneFree(val, 10);
+                        break;
+                    case 'I':
+                        total += CalculateNormalPrice(val, 35);
+                        break;
+                    case 'J':
+                        total += CalculateNormalPrice(val, 60);
+                        break;
+                    case 'L':
+                        total += CalculateNormalPrice(val, 90);
+                        break;
+                    case 'O':
+                    case 'Y':
+                        total += CalculateNormalPrice(val, 10);
+                        break;
+                    case 'S':
+                        total += CalculateNormalPrice(val, 30);
+                        break;
+                    case 'T':
+                        total += CalculateNormalPrice(val, 20);
+                        break;
+                    case 'W':
+                        total += CalculateNormalPrice(val, 20);
+                        break;
+                    case 'X':
+                        total += CalculateNormalPrice(val, 90);
+                        break;
+                    case 'Z':
+                        total += CalculateNormalPrice(val, 50);
                         break;
                 }
             }
@@ -142,6 +172,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
