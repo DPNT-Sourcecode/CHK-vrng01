@@ -133,13 +133,13 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
-        [TestCase("FF", ExpectedResult = 10)]
+        [TestCase("FF", ExpectedResult = 20)]
         public int ComputePrice_Fail_2F(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
         }
 
-        [TestCase("FFF", ExpectedResult = 20)]
+        [TestCase("FFF", ExpectedResult = 30)]
         public int ComputePrice_1Free_3F(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
@@ -255,4 +255,5 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
     }
 }
+
 
