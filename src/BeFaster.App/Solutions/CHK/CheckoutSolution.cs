@@ -86,7 +86,7 @@ namespace BeFaster.App.Solutions.CHK
                             var bItemCount = SKUs['B'];
                             while (val >= 2 && bItemCount > 0)
                             {
-                                if (bItemCount >= 2)
+                                if (bItemCount % 2 == 0)
                                 {
                                     total -= 15;
                                     bItemCount -= 1;
@@ -96,7 +96,6 @@ namespace BeFaster.App.Solutions.CHK
                                     total -= 30;
                                     bItemCount -= 1;
                                 }
-
                                 total += 80;
                                 val -= 2;
                             }
@@ -116,6 +115,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
