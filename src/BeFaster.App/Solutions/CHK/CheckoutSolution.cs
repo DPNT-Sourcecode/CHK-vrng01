@@ -44,12 +44,8 @@ namespace BeFaster.App.Solutions.CHK
                 switch (key)
                 {
                     case 'A':
-                        while (val > 0)
-                        {
-
-                            total += CalcWithDiscount(ref val, 5, 200, 50);
-                            total += CalcWithDiscount(ref val, 3, 130, 50);
-                        }
+                        total += CalcWithDiscount(ref val, 5, 200, 50);
+                        total += CalcWithDiscount(ref val, 3, 130, 50);
                         total += CalculateNormalPrice(val, 30);
                         break;
                     case 'B':
@@ -127,10 +123,7 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 60);
                         break;
                     case 'K':
-                        while (val > 0)
-                        {
-                            total += CalcWithDiscount(ref val, 2, 150, 80);
-                        }
+                        total += CalcWithDiscount(ref val, 2, 150, 80);
                         break;
                     case 'L':
                     case 'X':
@@ -157,10 +150,7 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 10);
                         break;
                     case 'P':
-                        while (val > 0)
-                        {
-                            total += CalcWithDiscount(ref val, 5, 200, 50);
-                        }
+                        total += CalcWithDiscount(ref val, 5, 200, 50);
                         break;
                     case 'S':
                         total += CalculateNormalPrice(val, 30);
@@ -177,17 +167,10 @@ namespace BeFaster.App.Solutions.CHK
         private static int CalcWithDiscount(ref int count, int howManyForDiscount, int discountedPrice, int normalPrice)
         {
             var total = 0;
-            if (count >= 5)
-            {
-                var c = CalcIntValue(count, howManyForDiscount);
-                total += c * discountedPrice;
-                count -= c * howManyForDiscount;
-            }
-            else
-            {
-                total += count * normalPrice;
-                count -= count;
-            }
+            if (count < howManyForDiscount) return total;
+            var c = CalcIntValue(count, howManyForDiscount);
+            total += c * discountedPrice;
+            count -= c * howManyForDiscount;
 
             return total;
         }
@@ -220,4 +203,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
