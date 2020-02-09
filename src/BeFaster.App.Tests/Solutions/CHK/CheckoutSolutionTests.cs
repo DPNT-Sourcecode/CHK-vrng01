@@ -7,6 +7,12 @@ namespace BeFaster.App.Tests.Solutions.CHK
     [TestFixture]
     public class CheckoutSolutionTests
     {
+        [TestCase("A", ExpectedResult = 50)]
+        public int ComputePrice_Discounted_1A(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
         [TestCase("AAAAA", ExpectedResult = 200)]
         public int ComputePrice_Discounted_5A(string skus)
         {
@@ -25,8 +31,20 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
+        [TestCase("B", ExpectedResult = 30)]
+        public int ComputePrice_Discounted_1B(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
         [TestCase("BBB", ExpectedResult = 75)]
         public int ComputePrice_Discounted_3B(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("C", ExpectedResult = 20)]
+        public int ComputePrice_Discounted_1C(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
         }
@@ -37,8 +55,20 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(skus);
         }
 
+        [TestCase("D", ExpectedResult = 15)]
+        public int ComputePrice_Discounted_1D(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
         [TestCase("DDD", ExpectedResult = 45)]
         public int ComputePrice_Discounted_3D(string skus)
+        {
+            return CheckoutSolution.ComputePrice(skus);
+        }
+
+        [TestCase("E", ExpectedResult = 40)]
+        public int ComputePrice_Discounted_1E(string skus)
         {
             return CheckoutSolution.ComputePrice(skus);
         }
@@ -74,3 +104,4 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
+
