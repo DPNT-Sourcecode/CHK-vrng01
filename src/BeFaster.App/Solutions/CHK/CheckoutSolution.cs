@@ -81,23 +81,24 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 15;
                         break;
                     case 'E':
-                        var bItemCount = SKUs['B'];
-                        while (val >= 2 && bItemCount > 0)
+                        if (val >= 2 && SKUs.ContainsKey('B'))
                         {
-                            if (bItemCount >= 2)
+                            var bItemCount = SKUs['B'];
+                            while (val >= 2 && bItemCount > 0)
                             {
-                                total -= 15;
-                                bItemCount -= 1;
-
+                                if (bItemCount >= 2)
+                                {
+                                    total -= 15;
+                                    bItemCount -= 1;
+                                    continue;
+                                }
+                                else
+                                {
+                                    total -= 30;
+                                    bItemCount -= 1;
+                                    continue;
+                                }
                             }
-                            else
-                            {
-                                total -= 30;
-                                bItemCount -= 1;
-                            }
-
-                            total += 80;
-                            val -= 2;
                         }
 
                         total += val * 40;
@@ -114,6 +115,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
