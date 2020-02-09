@@ -177,9 +177,9 @@ namespace BeFaster.App.Solutions.CHK
                     case 'V':
                         while (val > 0)
                         {
-                            total += CalcDiscount(ref val, 2, 90);
-                            if (val <= 0) continue;
                             total += CalcDiscount(ref val, 3, 130);
+                            if (val <= 0) continue;
+                            total += CalcDiscount(ref val, 2, 90);
                             if (val <= 0) continue;
 
                             total += val * 50;
@@ -246,6 +246,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
