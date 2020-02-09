@@ -140,13 +140,19 @@ namespace BeFaster.App.Solutions.CHK
                         total += CalculateNormalPrice(val, 60);
                         break;
                     case 'K':
-                        if (val == 2)
+                        while (val > 0)
                         {
-                            total += 150;
-                        }
-                        else
-                        {
-                            total += CalculateNormalPrice(val, 80);
+                            if (val >= 2)
+                            {
+                                var c = CalcIntValue(val, 2);
+                                total += c * 150;
+                                val -= c * 2;
+                            }
+                            else
+                            {
+                                total += val * 80;
+                                val -= val;
+                            }
                         }
                         break;
                     case 'L':
@@ -172,6 +178,22 @@ namespace BeFaster.App.Solutions.CHK
                     case 'O':
                     case 'Y':
                         total += CalculateNormalPrice(val, 10);
+                        break;
+                    case 'P':
+                        while (val > 0)
+                        {
+                            if (val >= 2)
+                            {
+                                var c = CalcIntValue(val, 2);
+                                total += c * 150;
+                                val -= c * 2;
+                            }
+                            else
+                            {
+                                total += val * 80;
+                                val -= val;
+                            }
+                        }
                         break;
                     case 'S':
                         total += CalculateNormalPrice(val, 30);
@@ -214,6 +236,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
