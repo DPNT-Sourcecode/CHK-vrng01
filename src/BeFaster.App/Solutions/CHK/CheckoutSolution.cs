@@ -72,13 +72,13 @@ namespace BeFaster.App.Solutions.CHK
                             val -= c * 2;
                         }
 
-                        total += val * 30;
+                        total += CalculateNormalPrice(val, 30);
                         break;
                     case 'C':
-                        total += val * 20;
+                        total += CalculateNormalPrice(val, 20);
                         break;
                     case 'D':
-                        total += val * 15;
+                        total += CalculateNormalPrice(val, 15);
                         break;
                     case 'E':
                         if (val >= 2 && SKUs.ContainsKey('B'))
@@ -101,7 +101,7 @@ namespace BeFaster.App.Solutions.CHK
                             }
                         }
 
-                        total += val * 40;
+                        total += CalculateNormalPrice(val, 40);
                         break;
                     case 'F':
                         total += GetOneFree(val, 10);
@@ -112,6 +112,10 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
+        private static int CalculateNormalPrice(int count, int price)
+        {
+            return count * price;
+        }
         private static int GetOneFree(int count, int price)
         {
             var total = 0;
@@ -138,6 +142,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
