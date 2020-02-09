@@ -33,41 +33,43 @@ namespace BeFaster.App.Solutions.CHK
                 {
                     SKUs[c] += 1;
                 }
-
-                switch (SKUs[c])
-                {
-                    case 3 when c.Equals('A'):
-                        total += 130;
-                        SKUs[c] = 0;
-                        break;
-                    case 2 when c.Equals('B'):
-                        total += 45;
-                        SKUs[c] = 0;
-                        break;
-                }
             }
 
             foreach (var sku in SKUs)
             {
-                var count = sku.Value;
-                switch (sku.Key)
-                {
-                    case 'A':
-                        total += count * 50;
-                        break;
-                    case 'B':
-                        total += count * 30;
-                        break;
-                    case 'C':
-                        total += count * 20;
-                        break;
-                    case 'D':
-                        total += count * 15;
-                        break;
-                }
+                var key = sku.Key;
+                var val = sku.Value;
+                if(sku.ke)
+                //switch (count)
+                //{
+                //    case 3 when c.Equals('A'):
+                //        total += 130;
+                //        SKUs[c] = 0;
+                //        break;
+                //    case 2 when c.Equals('B'):
+                //        total += 45;
+                //        SKUs[c] = 0;
+                //        break;
+                //}
+                //switch (sku.Key)
+                //{
+                //    case 'A':
+                //        total += count * 50;
+                //        break;
+                //    case 'B':
+                //        total += count * 30;
+                //        break;
+                //    case 'C':
+                //        total += count * 20;
+                //        break;
+                //    case 'D':
+                //        total += count * 15;
+                //        break;
+                //}
             }
 
             return total;
         }
     }
 }
+
