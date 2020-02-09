@@ -10,6 +10,11 @@ namespace BeFaster.App.Solutions.CHK
         private static readonly char[] knownSKUs = new[] { 'A', 'B', 'C', 'D' };
         public static int ComputePrice(string skus)
         {
+            if (string.IsNullOrEmpty(skus))
+            {
+                return -1;
+            }
+
             var total = 0;
             var charArr = skus.ToCharArray();
             foreach (var c in charArr)
@@ -28,15 +33,36 @@ namespace BeFaster.App.Solutions.CHK
                     SKUs[c] += 1;
                 }
 
-                if (SKUs[c].Equals(3) && c.Equals('A'))
+                switch (SKUs[c])
                 {
-                    total += 130;
-                    SKUs[c] = 0;
+                    case 3 when c.Equals('A'):
+                        total += 130;
+                        SKUs[c] = 0;
+                        break;
+                    case 2 when c.Equals('B'):
+                        total += 45;
+                        SKUs[c] = 0;
+                        break;
                 }
-                else if (SKUs[c].Equals(2) && c.Equals('B'))
+            }
+
+            foreach (var sku in SKUs)
+            {
+                var count = sku.Value;
+                switch (sku.Key)
                 {
-                    total += 45;
-                    SKUs[c] = 0;
+                    case 'A':
+                        total += count * 50;
+                        break;
+                    case 'B':
+                        total += count * 30;
+                        break;
+                    case 'C':
+                        total += count * 20;
+                        break;
+                    case 'D':
+                        total += count * 15;
+                        break;
                 }
             }
 
@@ -44,4 +70,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
