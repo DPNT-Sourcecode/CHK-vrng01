@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BeFaster.Runner.Exceptions;
 
@@ -56,8 +57,14 @@ namespace BeFaster.App.Solutions.CHK
 
             return total;
         }
+
+        private int GetIntValue(int x, int y)
+        {
+            return Math.Truncate((decimal)(x / y));
+        }
     }
 }
+
 
 
 
