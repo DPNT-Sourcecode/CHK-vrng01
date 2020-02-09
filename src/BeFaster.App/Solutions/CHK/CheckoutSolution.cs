@@ -157,7 +157,7 @@ namespace BeFaster.App.Solutions.CHK
                                 }
                                 else
                                 {
-                                    total -= 30;
+                                    total -= 15;
                                     bItemCount -= 1;
                                 }
                                 total += 40;
@@ -214,4 +214,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
