@@ -81,7 +81,7 @@ namespace BeFaster.App.Solutions.CHK
                         total += val * 15;
                         break;
                     case 'E':
-
+                        total += GetOneFreeFromX(SKUs, val, 40, 'B');
                         break;
                     case 'F':
                         total += GetOneFree(val, 10);
@@ -92,7 +92,7 @@ namespace BeFaster.App.Solutions.CHK
             return total;
         }
 
-        private static int GetOneFreeFromX(IReadOnlyDictionary<char, int> SKUs, int count, int price, char SKUFree)
+        private static int GetOneFreeFromX(IReadOnlyDictionary<char, int> SKUs, int count, int price, char SKUFree, int freePrice)
         {
             var total = 0;
             if (count >= 2 && SKUs.ContainsKey(SKUFree))
@@ -110,7 +110,7 @@ namespace BeFaster.App.Solutions.CHK
                         total -= 30;
                         bItemCount -= 1;
                     }
-                    total += 80;
+                    total += 2 * price;
                     count -= 2;
                 }
             }
@@ -145,4 +145,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
